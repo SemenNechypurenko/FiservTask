@@ -10,6 +10,10 @@ public class MaxSequence {
             if (maxEndingHere < 0)
                 maxEndingHere = 0;
         }
+        if (arrayOfInt.length == 0) {
+            System.out.println("no elements in the array");
+            return 0;
+        }
         return maxSoFar;
     }
 }
