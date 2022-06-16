@@ -11,7 +11,8 @@ public class WikiService {
         try {
             var parse = template.getForEntity(url.concat(topic), String.class).getBody();
             ObjectNode node = new ObjectMapper().readValue(parse, ObjectNode.class);
-            if (node.has("parse") && node.get("parse").get("text") != null
+            if (node != null && node.has("parse")
+                    && node.get("parse").get("text") != null
                     && node.get("parse").get("text").get("*") != null) {
                 var stringValue = node.get("parse").get("text").get("*").textValue();
                 return stringValue.split(topic).length - 1;
